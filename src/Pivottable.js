@@ -6,7 +6,13 @@ export default {
   mixins: [defaultProps],
   computed: {
     renderers () {
-      return TableRenderer[this.rendererName in TableRenderer ? this.rendererName : Object.keys(TableRenderer)[0]]
+      // ORIGINAL LINE:
+      // return TableRenderer[this.rendererName in TableRenderer ? this.rendererName : Object.keys(TableRenderer)[0]]
+      return this.rendererName in TableRenderer ?
+        TableRenderer[this.rendererName] :
+        this.rendererName in PlotlyRenderer ?
+          PlotlyRenderer[this.rendererName] :
+          Object.keys(TableRenderer)[0];
     }
   },
   methods: {
