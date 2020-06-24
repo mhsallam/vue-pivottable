@@ -1,4 +1,5 @@
 import TableRenderer from './TableRenderer'
+import PlotlyRenderer from './PlotlyRenderer'
 import defaultProps from './helper/defaultProps'
 export default {
   name: 'vue-pivottable',
